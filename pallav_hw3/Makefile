@@ -1,0 +1,12 @@
+CC=nvcc
+CFLAGS += -O2 -g -DUSE_CUDA
+
+ENCAPDECAP=enc_dec
+
+$(ENCAPDECAP): $(ENCAPDECAP).cu
+	$(CC) $(CFLAGS) -o $(ENCAPDECAP) $(ENCAPDECAP).cu
+
+all: $(ENCAPDECAP)
+
+clean:
+	@rm -f $(ENCAPDECAP)
